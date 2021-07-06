@@ -4,7 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class VoterPerStateCountResult {
+public class VoterPerStateCountResult implements DbQueryResult {
 
     public final DbQueryType type = DbQueryType.VOTER_PER_STATE_COUNT;
 

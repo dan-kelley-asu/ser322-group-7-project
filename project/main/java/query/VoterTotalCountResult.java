@@ -3,7 +3,7 @@ package query;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class VoterTotalCountResult {
+public class VoterTotalCountResult implements DbQueryResult {
 
     public final DbQueryType type = DbQueryType.VOTER_TOTAL_COUNT;
 
