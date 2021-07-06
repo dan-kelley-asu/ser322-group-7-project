@@ -4,7 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class RowCountResult {
+public class RowCountResult implements DbQueryResult {
 
     public final DbQueryType type = DbQueryType.ROW_COUNT;
 

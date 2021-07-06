@@ -4,7 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class StatesWithDifferentElectedPartyResult {
+public class StatesWithDifferentElectedPartyResult implements DbQueryResult {
 
     public final DbQueryType type = DbQueryType.STATES_WITH_DIFFERENT_ELECTED_PARTY;
 

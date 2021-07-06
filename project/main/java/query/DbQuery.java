@@ -1,5 +1,7 @@
 package query;
 
+import jdk.jshell.spi.ExecutionControl;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -67,5 +69,5 @@ public abstract class DbQuery {
      * @return
      * @throws SQLException
      */
-    public abstract DbQueryResult executeQuery() throws SQLException;
+    public abstract DbQueryResult executeQuery() throws SQLException, ExecutionControl.NotImplementedException;
 }
