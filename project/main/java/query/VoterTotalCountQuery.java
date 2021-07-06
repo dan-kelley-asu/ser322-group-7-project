@@ -18,7 +18,7 @@ public class VoterTotalCountQuery extends DbQuery {
         this.connect();
 
         PreparedStatement stmt = this.conn.prepareStatement(
-                "SELECT count(*) AS Count FROM Voter;"
+                "SELECT count(*) AS Count FROM query.Voter;"
         );
 
         try {

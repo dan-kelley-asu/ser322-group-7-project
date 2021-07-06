@@ -18,7 +18,7 @@ public class VoterQuery extends DbQuery {
         this.connect();
 
         PreparedStatement stmt = this.conn.prepareStatement(
-                "SELECT * FROM Voter;"
+                "SELECT * FROM query.Voter;"
         );
 
         try {
