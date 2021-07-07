@@ -6,19 +6,23 @@ import java.sql.SQLException;
 
 public class VoterQuery extends DbQuery {
 
+<<<<<<< Updated upstream:project/main/java/query/VoterQuery.java
     public VoterQuery(String url, String user, String password, String driver) {
         super(DbQueryType.VOTER, url, user, password, driver);
+=======
+    public VoterQuery() {
+        super(DbQueryType.VOTER);
+>>>>>>> Stashed changes:src/main/java/query/VoterQuery.java
     }
 
     @Override
     public DbQueryResult executeQuery() throws SQLException {
 
         DbQueryResult result = null;
-
         this.connect();
 
         PreparedStatement stmt = this.conn.prepareStatement(
-                "SELECT * FROM query.Voter;"
+                "SELECT * FROM voter;"
         );
 
         try {

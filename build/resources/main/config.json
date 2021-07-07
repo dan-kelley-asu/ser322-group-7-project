@@ -1,0 +1,6 @@
+{
+  "url": "jdbc:mysql://localhost/project",
+  "driver": "com.mysql.cj.jdbc.Driver",
+  "user": "root",
+  "password": "root"
+}

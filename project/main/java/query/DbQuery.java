@@ -45,6 +45,7 @@ public abstract class DbQuery {
      * @throws SQLException Error connecting to database
      */
     protected void connect() throws SQLException {
+<<<<<<< Updated upstream:project/main/java/query/DbQuery.java
         this.loadDriver(driver);
 
         Properties credentials = new Properties();
@@ -52,6 +53,15 @@ public abstract class DbQuery {
         credentials.setProperty("password", password);
 
         this.conn = DriverManager.getConnection(this.url, credentials);
+=======
+        this.loadDriver(Config.config.driver);
+
+        Properties credentials = new Properties();
+        credentials.setProperty("user", Config.config.user);
+        credentials.setProperty("password", Config.config.password);
+
+        this.conn = DriverManager.getConnection(Config.config.url, credentials);
+>>>>>>> Stashed changes:src/main/java/query/DbQuery.java
     }
 
     /**
