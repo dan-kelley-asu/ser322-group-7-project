@@ -1,0 +1,6 @@
+{
+  "url": "localhost",
+  "driver": "jdbc",
+  "user": "root",
+  "password": "root"
+}

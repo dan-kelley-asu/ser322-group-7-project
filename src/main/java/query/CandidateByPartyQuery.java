@@ -6,8 +6,8 @@ import java.sql.SQLException;
 
 public class CandidateByPartyQuery extends DbQuery {
 
-    public CandidateByPartyQuery(String url, String user, String password, String driver) {
-        super(DbQueryType.CANDIDATE_BY_PARTY, url, user, password, driver);
+    public CandidateByPartyQuery(String url) {
+        super(DbQueryType.CANDIDATE_BY_PARTY);
     }
 
     @Override

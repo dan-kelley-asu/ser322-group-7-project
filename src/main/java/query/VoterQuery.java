@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class VoterQuery extends DbQuery {
 
     public VoterQuery(String url, String user, String password, String driver) {
-        super(DbQueryType.VOTER, url, user, password, driver);
+        super(DbQueryType.VOTER);
     }
 
     @Override

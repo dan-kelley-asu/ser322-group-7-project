@@ -6,10 +6,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class VoterUpdate extends DbQuery {
+public class VoterInsert extends DbQuery {
 
-    public VoterUpdate(String url, String user, String password, String driver) {
-        super(DbQueryType.VOTER_INSERT, url, user, password, driver);
+    public VoterInsert() {
+        super(DbQueryType.VOTER_INSERT);
     }
 
     public DbQueryResult executeQuery(Voter voter) throws SQLException {
@@ -19,15 +19,8 @@ public class VoterUpdate extends DbQuery {
         this.connect();
 
         PreparedStatement stmt = this.conn.prepareStatement(
-                "UPDATE voter SET\n" +
-                        "SSN = ?,\n" +
-                        "Name = ?,\n" +
-                        "Age = ?,\n" +
-                        "Gender = ?,\n" +
-                        "Ethnicity = ?,\n" +
-                        "FelonStatus = ?,\n" +
-                        "PartyID = ?\n" +
-                        "WHERE VoterID = ?;"
+                "INSERT INTO voter (SSN, Name, Age, Gender, Ethnicity, FelonStatus, PartyID) VALUES\n" +
+                        "(?, ?, ?, ?, ?, ?, ?);"
         );
 
         stmt.setString(1, voter.SSN);
@@ -37,7 +30,6 @@ public class VoterUpdate extends DbQuery {
         stmt.setString(5, voter.Ethnicity);
         stmt.setBoolean(6, voter.FelonStatus);
         stmt.setInt(7, voter.PartyID);
-        stmt.setInt(8, voter.VoterID);
 
         try {
             ResultSet rs = stmt.executeQuery();

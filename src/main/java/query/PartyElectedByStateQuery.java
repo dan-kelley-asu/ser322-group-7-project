@@ -4,10 +4,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class VoterTotalCountQuery extends DbQuery {
+public class PartyElectedByStateQuery extends DbQuery {
 
-    public VoterTotalCountQuery(String url, String user, String password, String driver) {
-        super(DbQueryType.VOTER_TOTAL_COUNT, url, user, password, driver);
+    public PartyElectedByStateQuery() {
+        super(DbQueryType.PARTY_ELECTED_BY_STATE);
     }
 
     @Override
@@ -18,13 +18,15 @@ public class VoterTotalCountQuery extends DbQuery {
         this.connect();
 
         PreparedStatement stmt = this.conn.prepareStatement(
-                "SELECT count(*) AS Count FROM query.Voter;"
+                "SELECT ec.Name as Candidate, p.Name as Party\n" +
+                        "FROM election_candidate ec\n" +
+                        "LEFT JOIN party p ON p.PartyID = ec.PartyID;"
         );
 
         try {
             ResultSet rs = stmt.executeQuery();
 
-            result = new VoterTotalCountResult(rs);
+            result = new RowCountResult(rs);
 
         } catch (SQLException e) {
             System.out.println("Error executing SQL statement:");

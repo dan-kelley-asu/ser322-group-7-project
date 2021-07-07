@@ -4,10 +4,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class PartyElectedByStateQuery extends DbQuery {
+public class RowCountQuery extends DbQuery {
 
-    public PartyElectedByStateQuery(String url, String user, String password, String driver) {
-        super(DbQueryType.PARTY_ELECTED_BY_STATE, url, user, password, driver);
+    public RowCountQuery() {
+        super(DbQueryType.ROW_COUNT);
     }
 
     @Override
@@ -18,9 +18,9 @@ public class PartyElectedByStateQuery extends DbQuery {
         this.connect();
 
         PreparedStatement stmt = this.conn.prepareStatement(
-                "SELECT ec.Name as Candidate, p.Name as Party\n" +
-                        "FROM election_candidate ec\n" +
-                        "LEFT JOIN party p ON p.PartyID = ec.PartyID;"
+                "SELECT TABLE_NAME, TABLE_ROWS\n" +
+                        "FROM information_schema.TABLES\n" +
+                        "WHERE TABLE_SCHEMA = 'project';"
         );
 
         try {

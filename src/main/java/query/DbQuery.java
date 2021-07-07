@@ -1,5 +1,6 @@
 package query;
 
+import config.Config;
 import jdk.jshell.spi.ExecutionControl;
 
 import java.sql.Connection;
@@ -11,20 +12,13 @@ import java.util.Properties;
 public abstract class DbQuery {
 
     public final DbQueryType type;
-    public final String url;
-    public final String user;
-    public final String password;
-    public final String driver;
+
 
     protected Connection conn;
     protected Statement statement;
 
-    public DbQuery(DbQueryType type, String url, String user, String password, String driver) {
+    public DbQuery(DbQueryType type) {
         this.type = type;
-        this.url = url;
-        this.user = user;
-        this.password = password;
-        this.driver = driver;
     }
 
     /**
@@ -45,13 +39,13 @@ public abstract class DbQuery {
      * @throws SQLException Error connecting to database
      */
     protected void connect() throws SQLException {
-        this.loadDriver(driver);
+        this.loadDriver(Config.driver);
 
         Properties credentials = new Properties();
-        credentials.setProperty("user", user);
-        credentials.setProperty("password", password);
+        credentials.setProperty("user", Config.user);
+        credentials.setProperty("password", Config.password);
 
-        this.conn = DriverManager.getConnection(this.url, credentials);
+        this.conn = DriverManager.getConnection(Config.url, credentials);
     }
 
     /**

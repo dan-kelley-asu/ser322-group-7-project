@@ -1,3 +1,4 @@
 rootProject.name = 'ser322-group-7-project'
 include 'project'
-
+include 'src:query'
+include 'src:conifg'
