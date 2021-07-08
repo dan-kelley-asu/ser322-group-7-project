@@ -6,8 +6,8 @@ import java.sql.SQLException;
 
 public class VoterTotalCountQuery extends DbQuery {
 
-    public VoterTotalCountQuery(String url, String user, String password, String driver) {
-        super(DbQueryType.VOTER_TOTAL_COUNT, url, user, password, driver);
+    public VoterTotalCountQuery() {
+        super(DbQueryType.VOTER_TOTAL_COUNT);
     }
 
     @Override

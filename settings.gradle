@@ -1,3 +1,2 @@
 rootProject.name = 'ser322-group-7-project'
-include 'project'
-
+include 'config', 'gui', 'query'

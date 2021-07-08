@@ -10,9 +10,8 @@ repositories {
 }
 
 dependencies {
-    compile 'mysql:mysql-connector-java:8.0.25'
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    implementation 'com.google.code.gson:gson:2.8.7'
+    implementation 'mysql:mysql-connector-java:8.0.25'
 }
 
 test {

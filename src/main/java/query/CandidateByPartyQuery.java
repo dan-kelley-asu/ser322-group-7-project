@@ -4,31 +4,29 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class VoterQuery extends DbQuery {
+public class CandidateByPartyQuery extends DbQuery {
 
-<<<<<<< Updated upstream:project/main/java/query/VoterQuery.java
-    public VoterQuery(String url, String user, String password, String driver) {
-        super(DbQueryType.VOTER, url, user, password, driver);
-=======
-    public VoterQuery() {
-        super(DbQueryType.VOTER);
->>>>>>> Stashed changes:src/main/java/query/VoterQuery.java
+    public CandidateByPartyQuery(String url, String user, String password, String driver) {
+        super(DbQueryType.CANDIDATE_BY_PARTY);
     }
 
     @Override
     public DbQueryResult executeQuery() throws SQLException {
 
         DbQueryResult result = null;
+
         this.connect();
 
         PreparedStatement stmt = this.conn.prepareStatement(
-                "SELECT * FROM voter;"
+                "SELECT ec.Name as Candidate, p.Name as Party "+
+                    "FROM election_candidate ec "+
+                    "LEFT JOIN party p ON p.PartyID = ec.PartyID;"
         );
 
         try {
             ResultSet rs = stmt.executeQuery();
 
-            result = new VoterResult(rs);
+            result = new CandidateByPartyResult(rs);
 
         } catch (SQLException e) {
             System.out.println("Error executing SQL statement:");
@@ -41,3 +39,5 @@ public class VoterQuery extends DbQuery {
         return result;
     }
 }
+
+

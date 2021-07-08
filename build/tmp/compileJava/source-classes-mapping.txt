@@ -22,8 +22,8 @@ query/CandidateByPartyResult.java
  query.CandidateByPartyResult
 query/StatesWithDifferentElectedPartyResult.java
  query.StatesWithDifferentElectedPartyResult
-query/DbQueryType.java
- query.DbQueryType
+Main.java
+ Main
 config/Config.java
  config.Config
 query/StatesWithDifferentElectedPartyQuery.java
@@ -32,8 +32,9 @@ query/VoterResult.java
  query.VoterResult
 query/VoterInsert.java
  query.VoterInsert
-query/Voter.java
- query.Voter
+gui/VoterGUI.java
+ gui.VoterGUI
+ gui.VoterGUI$1
 query/DbQueryResult.java
  query.DbQueryResult
 query/VoterTotalCountQuery.java
@@ -46,8 +47,7 @@ query/VoterDelete.java
  query.VoterDelete
 query/VoterQuery.java
  query.VoterQuery
-gui/VoterGUI.java
- gui.VoterGUI
- gui.VoterGUI$1
-Main.java
- Main
+query/DbQueryType.java
+ query.DbQueryType
+query/Voter.java
+ query.Voter

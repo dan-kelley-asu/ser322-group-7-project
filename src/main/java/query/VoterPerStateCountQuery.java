@@ -4,10 +4,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class StatesWithDifferentElectedPartyQuery extends DbQuery {
+public class VoterPerStateCountQuery extends DbQuery {
 
-    public StatesWithDifferentElectedPartyQuery(String url, String user, String password, String driver) {
-        super(DbQueryType.STATES_WITH_DIFFERENT_ELECTED_PARTY, url, user, password, driver);
+    public VoterPerStateCountQuery() {
+        super(DbQueryType.VOTER_PER_STATE_COUNT);
     }
 
     @Override
@@ -34,7 +34,7 @@ public class StatesWithDifferentElectedPartyQuery extends DbQuery {
         try {
             ResultSet rs = stmt.executeQuery();
 
-            result = new StatesWithDifferentElectedPartyResult(rs);
+            result = new VoterPerStateCountResult(rs);
 
         } catch (SQLException e) {
             System.out.println("Error executing SQL statement:");

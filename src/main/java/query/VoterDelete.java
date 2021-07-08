@@ -8,8 +8,8 @@ import java.sql.SQLException;
 
 public class VoterDelete extends DbQuery {
 
-    public VoterDelete(String url, String user, String password, String driver) {
-        super(DbQueryType.VOTER_DELETE, url, user, password, driver);
+    public VoterDelete() {
+        super(DbQueryType.VOTER_DELETE);
     }
 
     public DbQueryResult executeQuery(int voterId) throws SQLException {
