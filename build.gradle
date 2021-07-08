@@ -10,10 +10,20 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.google.code.gson:gson:2.8.7'
-    implementation 'mysql:mysql-connector-java:8.0.25'
+    compile 'com.google.code.gson:gson:2.8.5'
+    compile 'mysql:mysql-connector-java:8.0.25'
 }
 
 test {
     useJUnitPlatform()
+}
+
+jar {
+    manifest {
+        attributes "Main-Class": "Main"
+    }
+
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
 }
