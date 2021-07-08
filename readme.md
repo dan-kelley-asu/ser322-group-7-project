@@ -13,10 +13,14 @@ The config.jar file needs four pieces of information for the program to work.
 {
   "url": "jdbc:mysql://localhost/project",
   "driver": "com.mysql.cj.jdbc.Driver",
-  "user": <your mysql username>
+  "user": <your mysql username>,
   "password": <your mysql password>
 }
 ```
 
 ## Dependencies
 All dependencies should not be required to be downloaded (such as gson), since these are already included in the JAR package. They are also included in the `build.gradle` file.
+
+## Github
+This program is also available at
+https://github.com/dan-kelley-asu/ser322-group-7-project
